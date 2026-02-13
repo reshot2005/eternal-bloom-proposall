@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 43% 94%;
+    --foreground: 340 40% 15%;
+
+    --card: 0 43% 90%;
+    --card-foreground: 340 40% 15%;
+
+    --popover: 0 43% 90%;
+    --popover-foreground: 340 40% 15%;
+
+    --primary: 345 100% 59%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 345 100% 77%;
+    --secondary-foreground: 340 40% 15%;
+
+    --muted: 0 33% 87%;
+    --muted-foreground: 340 20% 45%;
+
+    --accent: 345 100% 85%;
+    --accent-foreground: 345 80% 30%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 30% 82%;
+    --input: 0 30% 82%;
+    --ring: 345 100% 59%;
+
+    --radius: 0.75rem;
+
+    --rose-deep: 345 100% 59%;
+    --rose-soft: 345 100% 77%;
+    --burgundy: 345 60% 25%;
+    --burgundy-royal: 340 60% 30%;
+    --gold-warm: 38 90% 65%;
+    --pink-glow: 345 100% 59%;
+
+    --gradient-romantic: linear-gradient(135deg, hsl(0, 43%, 94%) 0%, hsl(0, 43%, 90%) 50%, hsl(0, 33%, 87%) 100%);
+    --gradient-rose: linear-gradient(135deg, hsl(345, 100%, 59%) 0%, hsl(345, 100%, 77%) 100%);
+    --gradient-deep: linear-gradient(180deg, hsl(0, 100%, 98%) 0%, hsl(0, 43%, 94%) 50%, hsl(0, 43%, 90%) 100%);
+    --shadow-glow: 0 0 40px hsl(345, 100%, 59% / 0.2);
+    --shadow-glow-strong: 0 0 80px hsl(345, 100%, 59% / 0.35);
+
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Cormorant Garamond', serif;
+    --font-script: 'Dancing Script', cursive;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply rounded-2xl border border-border;
+    background: hsl(var(--card) / 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.6), 0 0 40px hsl(var(--primary) / 0.3);
+  }
+
+  .glow-border {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3), inset 0 0 20px hsl(var(--primary) / 0.1);
+  }
+
+  .neon-glow {
+    box-shadow: 0 0 10px hsl(var(--primary) / 0.5), 0 0 30px hsl(var(--primary) / 0.3), 0 0 60px hsl(var(--primary) / 0.15);
+  }
+
+  .text-script {
+    font-family: var(--font-script);
+  }
+
+  .text-display {
+    font-family: var(--font-display);
+  }
+
+  .gradient-romantic {
+    background: var(--gradient-romantic);
+  }
+
+  .gradient-rose {
+    background: var(--gradient-rose);
+  }
+
+  .gradient-deep {
+    background: var(--gradient-deep);
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  .animate-heartbeat {
+    animation: heartbeat 1.2s ease-in-out infinite;
+  }
+
+  .animate-sparkle {
+    animation: sparkle 1.5s ease-in-out infinite;
+  }
+
+  .animate-drift {
+    animation: drift 15s linear infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px hsl(345, 100%, 59% / 0.3); }
+  50% { box-shadow: 0 0 40px hsl(345, 100%, 59% / 0.6), 0 0 80px hsl(345, 100%, 59% / 0.3); }
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.15); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.15); }
+  70% { transform: scale(1); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes drift {
+  0% { transform: translateY(100vh) rotate(0deg); }
+  100% { transform: translateY(-100px) rotate(360deg); }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.4);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.6);
+}
